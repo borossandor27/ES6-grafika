@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Szöveg kirajzolása középre
         ctx.fillText(szoveg, feliratVaszon.width / 2, feliratVaszon.height / 2);
+        document.getElementById("textWidth").innerHTML = `szöveg szélessége: ${ctx.measureText(szoveg).width} magassága: ${parseInt(ctx.font)}`; 
     };
 
     // Induláskor is rajzoljuk
