@@ -13,7 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const feliratSzovegeBeviteliMezo = document.getElementById("feliratSzovege");
 
-    const rajzolSzoveget = (szoveg) => {
+    const rajzolSzoveget = () => {
+        const szoveg = feliratSzovegeBeviteliMezo.value||null;
+        if (!szoveg) {
+            ctx.clearRect(0, 0, feliratVaszon.width, feliratVaszon.height);
+            return;
+        }
         // Vászon törlése
         ctx.clearRect(0, 0, feliratVaszon.width, feliratVaszon.height);
 
@@ -31,10 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Induláskor is rajzoljuk
-    rajzolSzoveget(feliratSzovegeBeviteliMezo.value);
+    rajzolSzoveget();
 
     // Bármely mező változására újrarajzol
     form.querySelectorAll("input, select").forEach(input => {
-        input.addEventListener("input", rajzolSzoveget.bind(null, feliratSzovegeBeviteliMezo.value));
+        input.addEventListener("input", rajzolSzoveget.bind());
     });
 });
