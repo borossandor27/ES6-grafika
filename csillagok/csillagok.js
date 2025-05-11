@@ -14,8 +14,8 @@ const sebesseg = 0.05;
 function init() {
   for (let i = 0; i < csillagSzam; i++) {
     // Véletlenszerű pozíció a vásznon
-    let x = Math.random() * canvas.width;
-    let y = Math.random() * canvas.height;
+    let x = Math.random() * canvas.width*2;
+    let y = Math.random() * canvas.height*2;
     csillagok.push({ x, y });
   }
 }
